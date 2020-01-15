@@ -1,0 +1,40 @@
+author: Per Buer
+description: Mongoose OS software to enable cloud (mqtt/http) control over ws2812b/neopixel lights through an ESP32
+version: 0.1
+
+platform: esp32
+
+includes:
+  - include
+
+tags:
+  - c
+
+sources:
+  - src
+
+filesystem:
+  - fs
+
+libs:
+  - origin: https://github.com/mongoose-os-libs/bme280
+  - origin: https://github.com/mongoose-os-libs/boards
+  - origin: https://github.com/mongoose-os-libs/ca-bundle
+  - origin: https://github.com/mongoose-os-libs/rpc-service-config
+  - origin: https://github.com/mongoose-os-libs/rpc-service-fs
+  - origin: https://github.com/mongoose-os-libs/rpc-uart
+  - origin: https://github.com/mongoose-os-libs/wifi
+  - origin: https://github.com/mongoose-os-libs/aws
+  - origin: https://github.com/mongoose-os-libs/dash 
+  - origin: https://github.com/mongoose-os-libs/rpc-service-ota
+  
+  
+manifest_version: 2017-09-29
+
+config_schema:
+  - ["pins.statusLed", "i", 22, { title: "LED for status."}]
+  - ["pins.bme_sck", "i", 23, { title: "SCK pin"}]
+  - ["pins.bme_mosi", "i", 40, {title: "MOSI pin"}]
+  - ["pins.bme_misi", "i", 30, {title: "MISI pin"} ]
+  - ["pins.bme_cs",   "i", 3, {title: "CS pin"}]
+ -  ["shadow.interval", "i", 10, {title: "How often we update the shadow device - in seconds."}]
